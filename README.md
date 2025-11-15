@@ -1,14 +1,15 @@
-# Dependency Graph Visualizer - Stage 1
+# Dependency Graph Visualizer - Stage 2
 
 ## 📋 Описание
 
-CLI-приложение для визуализации графа зависимостей NPM пакетов. Этап 1 реализует минимальный прототип с конфигурацией через командную строку.
+CLI-приложение для визуализации графа зависимостей NPM пакетов. **Этап 2** реализует сбор данных о прямых зависимостях пакетов из npm registry и локальных файлов.
 
 ## 🚀 Установка и запуск
 
 ### Предварительные требования
 - Node.js 18 или выше
 - npm
+- Доступ к интернету (для работы с npm registry)
 
 ### Установка
 ```bash
@@ -22,11 +23,11 @@ npm install
 
 ### Запуск
 ```bash
-# Базовый запуск
+# Анализ пакета из npm registry
 node src/cli/index.js --package <package-name>
 
-# Пример
-node src/cli/index.js --package react --max-depth 3 --filter "babel"
+# Анализ из локального package.json
+node src/cli/index.js --package <package-name> --url <path-to-package.json>
 ```
 
 ## Параметры командной строки
@@ -51,17 +52,17 @@ node src/cli/index.js --package react --max-depth 3 --filter "babel"
 
 **Анализ популярного пакета:**
 ```bash
-node src/cli/index.js --package react
+node src/cli/index.js --package express
 ```
 
-**Анализ популярного пакета с ограничением глубины:**
+**Анализ из локального package.json:**
 ```bash
-node src/cli/index.js --package react --max-depth 3
+node src/cli/index.js --package test-package --url ./tests/test-package.json
 ```
 
-**Комплексный анализ пакета:**
+**Анализ из локального репозитория:**
 ```bash
-node src/cli/index.js --package vue --url https://registry.npmjs.org --test-mode --ascii-tree --max-depth 5 --filter "core"
+node src/cli/index.js --package A --url ./tests/test-repo.json
 ```
 
 **Просмотр справки:**

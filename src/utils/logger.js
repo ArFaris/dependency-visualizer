@@ -22,4 +22,8 @@ export class Logger {
   debug(message) {
     console.log(`DEBUG: ${message}`);
   }
+
+  data(message) {
+    console.log(`DATA: ${message}`);
+  }
 }
