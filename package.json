@@ -1,0 +1,30 @@
+{
+  "name": "dependency-visualizer",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "CLI tool for visualizing NPM package dependencies",
+  "main": "src/main.js",
+  "bin": {
+    "depgraph": "./src/cli/index.js"
+  },
+  "scripts": {
+    "start": "node src/cli/index.js",
+    "dev": "node src/cli/index.js --package express --max-depth 2",
+    "test": "echo \"No tests for Stage 1\" && exit 0"
+  },
+  "keywords": [
+    "dependencies",
+    "graph", 
+    "npm",
+    "visualization",
+    "cli"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
