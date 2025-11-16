@@ -10,6 +10,7 @@ export class DependencyAnalyzer {
 
   async analyze() {
     try {
+      console.log('\n');
       this.logger.info(`Analyzing package: ${this.options.package}`);
       
       const fetcher = this.createFetcher();
@@ -46,7 +47,5 @@ export class DependencyAnalyzer {
     Object.entries(dependencies).forEach(([name, version]) => {
       console.log(`  - ${name}: ${version}`);
     });
-    
-    console.log(`\nTotal: ${Object.keys(dependencies).length} direct dependencies`);
   }
 }

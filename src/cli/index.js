@@ -20,7 +20,7 @@ program
 
 program.action(async (options) => {
   try {
-    console.log('Dependency Graph Tool - Stage 1');
+    console.log('Dependency Graph Tool - Stage 3');
    
     const validatedOptions = validateOptions(options);
     
