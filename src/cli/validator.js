@@ -20,6 +20,7 @@ export function validateOptions(options) {
     testMode: Boolean(options.testMode),
     asciiTree: Boolean(options.asciiTree),
     maxDepth: maxDepth,
-    filter: options.filter ? options.filter.trim() : null
+    filter: options.filter ? options.filter.trim() : null, 
+    reverseDependencies: options.reverseDependencies
   };
 }

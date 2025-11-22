@@ -14,6 +14,8 @@ export async function breadthFirstSearch(options) {
         const allDependencies = new Map();
         allDependencies.set(startPackage, { dependencies: {}, version: null, level: 0 });
 
+        const reverseDependencies = new Map();
+
         while (queue.length !== 0) {
             const { name: node, version, level: currentLevel } = queue.shift();
             options.package = node;
@@ -26,6 +28,10 @@ export async function breadthFirstSearch(options) {
             allDependencies.set(node, { dependencies, version, level: currentLevel });
 
             Object.entries(dependencies).forEach(([name, version]) => {
+                if (!reverseDependencies.has(name)) {
+                    reverseDependencies.set(name, new Set());
+                }
+                reverseDependencies.get(name).add(node);
                 if (!visitedPackages.has(name) && (options.filter === null || !options.filter.includes(name))) {
                     visitedPackages.add(name);
                     queue.push({ name, version, level: currentLevel + 1 });
@@ -36,6 +42,7 @@ export async function breadthFirstSearch(options) {
         return {
             root: startPackage,
             dependencies: allDependencies,
+            reverseDependencies: reverseDependencies
         };
     } catch (error) {
         throw error;

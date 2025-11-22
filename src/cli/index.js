@@ -16,11 +16,12 @@ program
   .option('-f, --filter <substring>', 'Substring for package filtering')
   .option('-u, --url <url>', 'Repository URL or path to test repository file')
   .option('-t, --test-mode', 'Enable test repository mode', false)
-  .option('-a, --ascii-tree', 'Output dependencies in ASCII tree format', false);
+  .option('-a, --ascii-tree', 'Output dependencies in ASCII tree format', false)
+  .option('-r, --reverse-dependencies <name>', 'Output reverse dependencies');
 
 program.action(async (options) => {
   try {
-    console.log('Dependency Graph Tool - Stage 3');
+    console.log('Dependency Graph Tool - Stage 4');
    
     const validatedOptions = validateOptions(options);
     
