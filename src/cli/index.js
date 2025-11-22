@@ -17,11 +17,12 @@ program
   .option('-u, --url <url>', 'Repository URL or path to test repository file')
   .option('-t, --test-mode', 'Enable test repository mode', false)
   .option('-a, --ascii-tree', 'Output dependencies in ASCII tree format', false)
-  .option('-r, --reverse-dependencies <name>', 'Output reverse dependencies');
+  .option('-r, --reverse-dependencies <name>', 'Output reverse dependencies')
+  .option('-pu, --plant-uml-diagram', 'Generate Plant UML Diagram', false);
 
 program.action(async (options) => {
   try {
-    console.log('Dependency Graph Tool - Stage 4');
+    console.log('Dependency Graph Tool - Stage 5');
    
     const validatedOptions = validateOptions(options);
     

@@ -21,6 +21,7 @@ export function validateOptions(options) {
     asciiTree: Boolean(options.asciiTree),
     maxDepth: maxDepth,
     filter: options.filter ? options.filter.trim() : null, 
-    reverseDependencies: options.reverseDependencies
+    reverseDependencies: options.reverseDependencies,
+    plantUMLDiagram: Boolean(options.plantUmlDiagram),
   };
 }
